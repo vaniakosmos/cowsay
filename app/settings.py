@@ -16,6 +16,7 @@ load_dotenv(find_dotenv())
 DEBUG = True
 
 logging.getLogger('telegram').setLevel(logging.WARNING)
+logging.getLogger('JobQueue').setLevel(logging.WARNING)
 logging.basicConfig(format='%(asctime)s ~ %(levelname)-10s %(name)-25s %(message)s',
                     datefmt='%Y-%m-%d %H:%M',
                     level=logging.DEBUG if DEBUG else logging.INFO)

@@ -118,6 +118,16 @@ def map_eyes(eyes_type=None):
     return BODY
 
 
+def make_message(text: str, **kwargs):
+    width = kwargs.pop('width', MAX_WIDTH)
+    eyes = kwargs.pop('eyes', 'oo')
+    tongue = kwargs.pop('tongue', '  ')
+    text = soft_wrap_text(text, width=width)
+    text = cloud_wrap_text(text)
+    result = text + get_body(eyes=eyes, tongue=tongue)
+    return result
+
+
 def main():
     text = 'bla1 bla2 hurma1 bla3 bla4 hurma2 bla5 bla6 hurma3 bla7 bla8 hurma4 bla9 bla0 hurma5'
     res = soft_wrap_text(text, width=1)
